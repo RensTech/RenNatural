@@ -1,43 +1,19 @@
-🌿 RenNatural — Website Minuman Herbal Alami
+# 🌿 RenNatural — Website Minuman Herbal (Landing Page)
 
-Website resmi untuk brand RenNatural, minuman herbal alami yang dibuat dari rempah-rempah pilihan seperti jahe, kunyit, kayu manis, serai, lemon, pandan, dan madu.
-Website ini menampilkan desain elegan dengan tema kuning gelap – coklat natural – hijau alam, serta dilengkapi animasi halus dan navigasi yang responsif.
+**Deskripsi singkat**
+RenNatural: landing page produk minuman herbal alami (jahe, kunyit, kayu manis, serai, pandan, lemon, madu). Tema: kuning gelap • coklat natural • hijau alam. Fokus: branding, edukasi bahan, dan CTA pemesanan via WhatsApp.
 
-📌 Fitur Utama
-⭐ Desain Modern & Elegan
+---
 
-Nuansa warna herbal yang natural
+## ⚡ Fitur Utama
+- 🖼 Hero visual + floating image animation  
+- 🌱 Section bahan (ingredients) dengan card informatif  
+- 🛍 Produk 3 varian + tombol *Pesan via WhatsApp* (auto message)  
+- 📱 Fully responsive — desktop / tablet / mobile  
+- 🔎 SEO dasar: meta tags, Open Graph, JSON-LD (Product)  
+- ✨ Animasi: scroll reveal, floating leaf, hero slide-up  
+- ♻️ Pure static: HTML + CSS + Vanilla JS (no build tools)
 
-Elemen UI yang bersih dan profesional
+---
 
-Gambar produk jelas dan berkualitas
-
-📱 Fully Responsive
-
-Tampilan optimal di Desktop, Tablet, dan Mobile
-
-Menu hamburger dengan animasi smooth
-
-Layout otomatis menyesuaikan ukuran layar
-
-🚀 SEO Optimized
-
-Menggunakan meta tags lengkap
-
-Open Graph untuk preview sosial media
-
-Schema.org Product markup
-
-🧭 Navigasi Halus & Animasi
-
-Smooth scrolling
-
-Scroll reveal animation
-
-Animasi floating, fade-in, dan slide-up pada elemen website
-
-🛒 Tombol Pembelian WhatsApp
-
-CTA WhatsApp langsung ke nomor bisnis
-
-Floating WA button pada sisi kanan screen
+## 📁 Struktur Project
