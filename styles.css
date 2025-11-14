@@ -1,0 +1,895 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Tema Warna */
+    --dark-yellow: #D9A441;
+    --dark-yellow-alt: #C08B2E;
+    --natural-brown: #D7B38C;
+    --natural-brown-alt: #B98A5A;
+    --natural-green: #4B7B50;
+    --natural-green-alt: #3F6B4A;
+    --light-bg: #FDF8F0;
+    --dark-text: #2D2D2D;
+    --light-text: #FFFFFF;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-text);
+    background-color: var(--light-bg);
+    overflow-x: hidden;
+    transition: opacity 0.8s ease-out;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* PERBAIKAN UNTUK GAMBAR */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Pastikan semua gambar visible */
+.hero-img, .about-img, .product-img, .ingredient-img, .logo-img, .footer-logo-img {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    border: none;
+    font-size: 1rem;
+}
+
+.btn.primary {
+    background-color: var(--natural-green);
+    color: var(--light-text);
+}
+
+.btn.primary:hover {
+    background-color: var(--natural-green-alt);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.btn.secondary {
+    background-color: transparent;
+    color: var(--natural-green);
+    border: 2px solid var(--natural-green);
+}
+
+.btn.secondary:hover {
+    background-color: var(--natural-green);
+    color: var(--light-text);
+    transform: translateY(-3px);
+}
+
+.btn.whatsapp-btn {
+    background-color: #25D366;
+    color: white;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.btn.whatsapp-btn:hover {
+    background-color: #128C7E;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+/* Animasi untuk konten utama saat pertama load */
+.page-load {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: pageLoadAnimation 1s ease-out forwards;
+}
+
+@keyframes pageLoadAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animasi untuk hero section khusus */
+.hero {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: heroSlideUp 1.2s ease-out 0.5s forwards;
+}
+
+@keyframes heroSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animasi untuk navigation */
+.navbar {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: navSlideDown 0.8s ease-out forwards;
+    transition: all 0.3s ease;
+}
+
+@keyframes navSlideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-item {
+    margin-left: 2rem;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: var(--dark-text);
+    position: relative;
+    padding: 5px 0;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--natural-green);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--natural-green);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1001;
+    position: relative;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark-text);
+    margin: 3px 0;
+    transition: var(--transition);
+}
+
+/* Sections */
+.section {
+    padding: 5rem 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--natural-green);
+    margin-bottom: 1rem;
+}
+
+.section-divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, var(--dark-yellow), var(--natural-green));
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Hero Section */
+.hero {
+    padding-top: 8rem;
+    background: linear-gradient(135deg, var(--light-bg) 0%, #f5f0e6 100%);
+    overflow: hidden;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero-title {
+    font-size: 2.8rem;
+    color: var(--natural-green);
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: var(--dark-text);
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.hero-img {
+    max-width: 100%;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    animation: float 6s ease-in-out infinite;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* About Section */
+.about {
+    background-color: white;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.about-img {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Ingredients Section */
+.ingredients {
+    background: linear-gradient(135deg, var(--light-bg) 0%, #f5f0e6 100%);
+}
+
+.ingredients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.ingredient-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.ingredient-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.ingredient-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background-color: var(--light-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.ingredient-img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.ingredient-name {
+    color: var(--natural-green);
+    margin-bottom: 1rem;
+}
+
+.ingredient-desc {
+    color: var(--dark-text);
+    opacity: 0.8;
+}
+
+/* Benefits Section */
+.benefits {
+    background-color: white;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: var(--light-bg);
+    border-radius: 15px;
+    transition: var(--transition);
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.benefit-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.benefit-title {
+    font-size: 1.2rem;
+    color: var(--natural-green);
+    margin: 0;
+}
+
+/* Products Section */
+.products {
+    background: linear-gradient(135deg, var(--light-bg) 0%, #f5f0e6 100%);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+.product-image {
+    overflow: hidden;
+    height: 350px;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-name {
+    color: var(--natural-green);
+    margin-bottom: 1rem;
+}
+
+.product-desc {
+    color: var(--dark-text);
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--natural-green);
+    color: var(--light-text);
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-logo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.footer-desc {
+    opacity: 0.8;
+    max-width: 300px;
+}
+
+.footer-title {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--light-text);
+}
+
+.footer-list {
+    list-style: none;
+}
+
+.footer-list li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-list a {
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
+.footer-list a:hover {
+    opacity: 1;
+    color: var(--natural-brown);
+}
+
+.footer-contact p {
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-link {
+    opacity: 0.8;
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    opacity: 1;
+    color: var(--natural-brown);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0.7;
+}
+
+/* WhatsApp Floating Button - DIPERBAIKI */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+    z-index: 1000;
+    transition: var(--transition);
+    transform: translateZ(0);
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.7);
+}
+
+.whatsapp-icon {
+    width: 65px;
+    height: 65px;
+}
+
+/* Leaf Ornaments */
+.leaf {
+    position: absolute;
+    background-image: url('images/leaf.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 80px;
+    opacity: 0.3;
+    z-index: -1;
+    animation: floatLeaf 15s ease-in-out infinite;
+}
+
+.leaf-1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.leaf-2 {
+    top: 40%;
+    right: 5%;
+    animation-delay: 5s;
+}
+
+.leaf-3 {
+    bottom: 20%;
+    left: 10%;
+    animation-delay: 10s;
+}
+
+@keyframes floatLeaf {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(-5deg);
+    }
+    75% {
+        transform: translateY(-15px) rotate(3deg);
+    }
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE STYLES - DIPERBAIKI */
+
+@media screen and (max-width: 992px) {
+    .hero .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-content {
+        max-width: 100%;
+    }
+    
+    .about-content {
+        flex-direction: column;
+    }
+    
+    .hero-title {
+        font-size: 2.3rem;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* FIX KHUSUS UNTUK DESKTOP - GAMBAR HARUS MUNCUL */
+@media screen and (min-width: 769px) {
+    .hero-img, .about-img, .product-img, .ingredient-img {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+    }
+    
+    .hero-image, .about-image, .product-image, .ingredient-icon {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: flex !important;
+    }
+}
+
+/* MOBILE STYLES - DIPERBAIKI */
+@media screen and (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.95);
+        width: 100%;
+        height: 100vh;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        padding: 2rem;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .nav-item {
+        margin: 0 0 2rem 0;
+    }
+    
+    .nav-link {
+        font-size: 1.3rem;
+        color: white;
+        padding: 12px 24px;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+        color: var(--natural-brown);
+        transform: translateX(10px);
+    }
+    
+    .nav-link::after {
+        display: none;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .hamburger.active .bar {
+        background-color: white;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    
+    .hero {
+        padding-top: 6rem;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section {
+        padding: 3rem 0;
+    }
+    
+    .hero-btns {
+        justify-content: center;
+    }
+    
+    .leaf {
+        display: none;
+    }
+    
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+        z-index: 998;
+    }
+    
+    .whatsapp-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero {
+        padding-top: 5rem;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .benefit-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .whatsapp-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
